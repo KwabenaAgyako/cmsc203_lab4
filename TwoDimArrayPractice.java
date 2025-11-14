@@ -126,7 +126,18 @@ public class TwoDimArrayPractice extends JFrame
     //  where row is the index of the array's current row
     //  and column is the index of the array's current column
     // Write your code here:
+	   for (int row = 0; row < intArray.length; row++)
+	    {
+	        System.out.print(row + "\t");
+	        for (int column = 0; column < intArray[row].length; column++)
+	        {
+	            System.out.print(intArray[row][column] + " ");
 
+	            // animate AFTER processing each element
+	            animate(row, column);
+	        }
+	        System.out.println();
+	    }
 
 
 
@@ -152,7 +163,13 @@ public class TwoDimArrayPractice extends JFrame
     //  where row is the index of the array's current row
     //  and column is the index of the array's current column
     // Write your code here:
+	   for (int column = 0; column < intArray[row].length; column++)
+	    {
+	        intArray[row][column] = value;
 
+	        // animate AFTER updating each element
+	        animate(row, column);
+	    }
 
 
    }
@@ -174,7 +191,22 @@ public class TwoDimArrayPractice extends JFrame
     //        minimum is the local variable storing the current minimum
     // Write your code here:
 
-      return 0; // replace this line with your return statement
+	    int min = intArray[0][column];
+
+	    for (int row = 0; row < intArray.length; row++)
+	    {
+	        if (intArray[row][column] < min)
+	        {
+	            min = intArray[row][column];
+	        }
+
+	        // animate AFTER examining each element
+	        animate(row, column, min);
+	    }
+
+	    return min;
+
+      // replace this line with your return statement
    }
    // end of findMinimumn method
 
@@ -192,9 +224,25 @@ public class TwoDimArrayPractice extends JFrame
     //  where row is the index of the array's current row,
     //        column is the index of the array's current column, and
     //        num is the local variable storing the current frequency count
-    // Write your code here:
+    // Write your code here:int count = 0;
+          int count=0;
+	    for (int row = 0; row < intArray.length; row++)
+	    {
+	        for (int column = 0; column < intArray[row].length; column++)
+	        {
+	            if (intArray[row][column] == value)
+	            {
+	                count++;
+	            }
 
-     return 0; // replace this line with your return statement
+	            // animate AFTER checking each element
+	            animate(row, column, count);
+	        }
+	    }
+
+	    return count;
+
+     // replace this line with your return statement
    }
    // end of countFound method
 
